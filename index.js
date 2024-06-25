@@ -32,13 +32,13 @@ app.get('/', (req,res) => {
 app.get('/books', async (req, res) => {
     let result = await client.connect()
     const db = result.db(dbname);
-    const collection = db.collection('books')
+    const collection = db.collection('booksdata')
     const response = await collection.find({}).toArray()
     res.send(response)
     //console.log(response)
 })
 
-app.get('/books/:country', async (req, res) => {
+app.get('/books/:category', async (req, res) => {
     let result = await client.connect()
     const db = result.db(dbname);
     const collection = db.collection('books')
