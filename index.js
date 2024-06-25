@@ -3,6 +3,8 @@ const app = express()
 require('dotenv').config();
 const {MongoClient} = require('mongodb')
 const url = process.env.MONGO_URL;
+const cors = require('cors')
+app.use(cors);
 const client = new MongoClient(url)
 const dbname = 'book_store'
 app.use(express.json())
