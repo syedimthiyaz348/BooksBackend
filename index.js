@@ -2,7 +2,7 @@ const express = require('express');
 const app = express()
 require('dotenv').config();
 const {MongoClient} = require('mongodb')
-const url = 'mongodb+srv://syedimthiyaz348:syedimmu348@syedimthiyaz.ltxlzt9.mongodb.net'
+const url = process.env.MONGO_URL;
 const client = new MongoClient(url)
 const dbname = 'book_store'
 app.use(express.json())
@@ -24,7 +24,7 @@ app.listen(4000)
 
 app.get('/', (req,res) => {
     res.send("<h1>Welcome</h1>")
-    
+
 })
 
 app.get('/books', async (req, res) => {
